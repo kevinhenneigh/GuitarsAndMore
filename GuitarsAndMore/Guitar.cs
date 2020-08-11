@@ -12,7 +12,7 @@ namespace GuitarsAndMore
     /// <summary>
     /// Represents a single guitar
     /// </summary>
-    class AddUpdateGuitar
+    class Guitar
     {
         #region Properties
         public int GuitarId { get; set; }
