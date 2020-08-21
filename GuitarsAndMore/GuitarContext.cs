@@ -21,13 +21,6 @@ namespace GuitarsAndMore
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
-    }
-
-    //public class MyEntity
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //}
-
-    public virtual DbSet<Guitar> Guitars { get; set }
+        public virtual DbSet<Guitar> Guitars { get; set; }
+    }   
 }
