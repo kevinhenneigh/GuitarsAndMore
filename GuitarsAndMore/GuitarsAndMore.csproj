@@ -63,6 +63,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GuitarContext.cs" />
+    <Compile Include="GuitarDb.cs" />
     <Compile Include="Migrations\202008210322201_Initial.cs" />
     <Compile Include="Migrations\202008210322201_Initial.Designer.cs">
       <DependentUpon>202008210322201_Initial.cs</DependentUpon>

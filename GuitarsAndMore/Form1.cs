@@ -19,17 +19,17 @@ namespace GuitarsAndMore
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Guitar guitar = new Guitar()
-            {
-                Brand = "Gibson",
-                GuitarType = "Les Paul Studio Gold Top",
-                Color = "Antique Zebra",
-                Value = 700
-            };
+            //Guitar guitar = new Guitar()
+            //{
+            //    Brand = "Gibson",
+            //    GuitarType = "Les Paul Studio Gold Top",
+            //    Color = "Antique Zebra",
+            //    Value = 700
+            //};
 
-            GuitarContext guitarContext = new GuitarContext();
-            guitarContext.Guitars.Add(guitar);
-            guitarContext.SaveChanges();
+            //GuitarContext guitarContext = new GuitarContext();
+            //guitarContext.Guitars.Add(guitar);
+            //guitarContext.SaveChanges();
         }
     }
 }
