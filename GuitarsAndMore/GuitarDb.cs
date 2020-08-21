@@ -11,7 +11,12 @@ namespace GuitarsAndMore
     {
         public static List<Guitar> GetGuitars()
         {
-            throw new NotImplementedException();
+            using(var guitarContext = new GuitarContext())
+            {
+                List<Guitar> guitars = (from guit in guitarContext.Guitars
+                                       select guit).ToList();
+                return guitars;
+            }
         }
 
         /// <summary>
@@ -21,8 +26,11 @@ namespace GuitarsAndMore
         /// <param name="guitar">The guitar to be added</param>
         public static Guitar Add(Guitar guitar)
         {
-            using (GuitarContext guitarContext = new GuitarContext())
+            using (var guitarContext = new GuitarContext())
             {
+                guitarContext.Database.Log = Console.WriteLine;
+            {
+
                 guitarContext.Guitars.Add(guitar);
                 guitarContext.SaveChanges();
                 return guitar;
@@ -31,12 +39,19 @@ namespace GuitarsAndMore
 
         public static Guitar Update(Guitar guitar)
         {
-            throw new NotImplementedException();
+            using(var guitarContext = new GuitarContext())
+            {
+                guitarContext.Database.Log = Console.WriteLine;
+
+                guitarContext.Entry(guitar).State = EntityState.Modified;
+                guitarContext.SaveChanges();
+                return guitar;
+            }
         }
 
         public static void Delete(Guitar guitar)
         {
-            using (GuitarContext guitarContext = new GuitarContext())
+            using (var guitarContext = new GuitarContext())
             {
                 guitarContext.Entry(guitar).State = EntityState.Deleted;
                 guitarContext.SaveChanges();
@@ -45,10 +60,16 @@ namespace GuitarsAndMore
 
         public static void Delete(int id)
         {
-            throw new NotImplementedException();
+
+            using(var guitarContext = new GuitarContext())
+            {
+                Guitar guitarToDelete = (from guitar in guitarContext.Guitars
+                                       where guitar.GuitarId == id
+                                       select guitar).Single();
+
+                guitarContext.Entry(guitarToDelete).State = EntityState.Deleted;
+                guitarContext.SaveChanges();
+            }
         }
-
-
-
     }
 }
