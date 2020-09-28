@@ -31,7 +31,6 @@ namespace GuitarsAndMore
             using (var guitarContext = new GuitarContext())
             {
                 guitarContext.Database.Log = Console.WriteLine;
-            {
 
                 guitarContext.Guitars.Add(guitar);
                 guitarContext.SaveChanges();
